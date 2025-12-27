@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "com.l33tfox.urai.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ChatHudMixin",
+		"MessageHandlerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

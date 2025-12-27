@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "urai",
+	"version": "${version}",
+	"name": "U.R.A.I.",
+	"description": "you are ai - gaslight people into thinking you're a gemini ai bot",
+	"authors": [
+		"L33tfox"
+	],
+	"contact": {
+		"homepage": "https://linktree.com/l33tfox",
+		"sources": "https://github.com/L33tfx"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/urai/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+          "com.l33tfox.urai.URAIClient"
+		],
+		"modmenu": [
+			"com.l33tfox.urai.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+      "urai.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.3",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
