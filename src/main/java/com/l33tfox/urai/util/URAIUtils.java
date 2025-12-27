@@ -1,7 +1,9 @@
 package com.l33tfox.urai.util;
 
 import com.l33tfox.urai.URAIClient;
+import com.l33tfox.urai.config.URAIConfig;
 import com.mojang.authlib.GameProfile;
+import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 import net.minecraft.network.message.SignedMessage;
@@ -31,7 +33,8 @@ public class URAIUtils {
     // Check if a chat message from another player starts with "Hey Gemini", meaning it should be fed into Gemini LLM
     public static boolean isMessageForGemini(SignedMessage message) {
         String messageContent = message.getSignedContent();
-        return (messageContent.toLowerCase().startsWith("hey gemini"));
+        String prefix = AutoConfig.getConfigHolder(URAIConfig.class).getConfig().geminiRequestStart.toLowerCase();
+        return (messageContent.toLowerCase().startsWith(prefix));
     }
 
     public static String sanitizeForMinecraftChat(String text) {
@@ -39,7 +42,7 @@ public class URAIUtils {
             return "";
         }
 
-        String sanitized = text.replaceAll("[^\\x20-\\x7E]", ""); // regex to match with all non-ascii characters
+        String sanitized = text.replaceAll("[^\\x20-\\x7E—]", ""); // regex to match with all non-ascii characters nor em dashes
 
         if (sanitized.length() > 256) {
             sanitized = sanitized.substring(0, 256);

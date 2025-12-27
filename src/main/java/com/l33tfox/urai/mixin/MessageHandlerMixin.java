@@ -36,7 +36,8 @@ public abstract class MessageHandlerMixin {
 		}
 
 		if (URAIUtils.isMessageForGemini(message)) {
-			URAIClient.geminiResponse = GeminiApiIntegration.getGeminiResponse(message.getSignedContent().substring("hey gemini".length()).trim());
+			String prefix = AutoConfig.getConfigHolder(URAIConfig.class).getConfig().geminiRequestStart.toLowerCase();
+			URAIClient.geminiResponse = GeminiApiIntegration.getGeminiResponse(message.getSignedContent().substring(prefix.length()).trim());
 		}
 	}
 }
