@@ -27,7 +27,7 @@ public class GeminiApiIntegration {
                 .build();
 
         if (!config.modEnabled) {
-            return "Mod disabled"; // this should never happen due to other modEnabled checks, but here for safety
+            return null; // this should never happen due to other modEnabled checks, but here for safety
         }
 
         String apiKey = config.geminiApiKey;
