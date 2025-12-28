@@ -30,11 +30,10 @@ public class URAIUtils {
         return false;
     }
 
-    // Check if a chat message from another player starts with "Hey Gemini", meaning it should be fed into Gemini LLM
-    public static boolean isMessageForGemini(SignedMessage message) {
-        String messageContent = message.getSignedContent();
+    public static boolean isMessageForGemini(String messageContent) {
+        URAIClient.LOGGER.info("in message checker with content {}", messageContent);
         String prefix = AutoConfig.getConfigHolder(URAIConfig.class).getConfig().geminiRequestStart.toLowerCase();
-        return (messageContent.toLowerCase().startsWith(prefix));
+        return (messageContent.toLowerCase().contains(prefix));
     }
 
     public static String sanitizeForMinecraftChat(String text) {
@@ -50,4 +49,6 @@ public class URAIUtils {
 
         return sanitized;
     }
+
+
 }

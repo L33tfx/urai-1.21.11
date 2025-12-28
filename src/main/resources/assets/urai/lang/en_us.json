@@ -1,6 +1,7 @@
 {
   "text.autoconfig.urai.option.modEnabled" : "Mod Enabled",
   "text.autoconfig.urai.option.geminiApiKey" : "Your Personal Gemini AI API Key (DO NOT SHARE WITH ANYONE)",
+  "text.autoconfig.urai.option.maxOutputTokens" : "Max Number of Tokens used in Gemini's Response",
   "text.autoconfig.urai.option.geminiRequestStart" : "Prefix for a Gemini request in Chat (Not Case-Sensitive)",
   "text.autoconfig.urai.option.gameStartIntroMessage" : "Initial Message to Send to Server Chat",
   "text.autoconfig.urai.option.gameStartIntroMessage.@Tooltip" : "This does not automatically get sent, but is included here for easy copy/paste",

@@ -13,6 +13,8 @@ public class URAIConfig implements ConfigData {
 
     public String geminiApiKey = "AIzaSyALFe9T_a9_7BNQY9NBQmoXOMJCcBpz4vc"; // TODO: delete key in portal later
 
+    public int maxOutputTokens = 128;
+
     public String geminiRequestStart = "Hey Gemini";
 
     @ConfigEntry.Gui.Tooltip
