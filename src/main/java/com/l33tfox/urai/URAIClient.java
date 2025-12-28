@@ -23,7 +23,7 @@ public class URAIClient implements ClientModInitializer {
 	// global variable for output from gemini
 	public static String geminiResponse = null;
 	// delay of 2 seconds between automated messages to avoid getting kicked for spam
-	public static final long messageDelay = 2000;
+	public static final long messageDelay = 3000;
 
 	public static final String GEMINI_MODEL = "gemini-2.0-flash-lite";
 

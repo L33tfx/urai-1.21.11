@@ -32,8 +32,10 @@ public class URAIUtils {
 
     public static boolean isMessageForGemini(String messageContent) {
         URAIClient.LOGGER.info("in message checker with content {}", messageContent);
-        String prefix = AutoConfig.getConfigHolder(URAIConfig.class).getConfig().geminiRequestStart.toLowerCase();
-        return (messageContent.toLowerCase().contains(prefix));
+        URAIConfig config = AutoConfig.getConfigHolder(URAIConfig.class).getConfig();
+        String prefix = config.geminiRequestStart.toLowerCase();
+        String lowercaseMessage = messageContent.toLowerCase();
+        return lowercaseMessage.contains(prefix) && !lowercaseMessage.equals(config.gameStartIntroMessage.toLowerCase());
     }
 
     public static String sanitizeForMinecraftChat(String text) {
