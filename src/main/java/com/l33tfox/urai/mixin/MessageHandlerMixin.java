@@ -40,8 +40,9 @@ public abstract class MessageHandlerMixin {
 	@Unique
 	private void detectMessageShared(String messageContent) {
 		ServerInfo serverInfo = client.getCurrentServerEntry();
+		URAIConfig config = AutoConfig.getConfigHolder(URAIConfig.class).getConfig();
 
-		if (!URAIUtils.isSupportedServer(serverInfo) || !AutoConfig.getConfigHolder(URAIConfig.class).getConfig().modEnabled) {
+		if ((!config.enableOnAllServers && !URAIUtils.isSupportedServer(serverInfo)) || !config.modEnabled) {
 			return;
 		}
 

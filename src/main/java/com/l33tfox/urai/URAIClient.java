@@ -56,7 +56,8 @@ public class URAIClient implements ClientModInitializer {
 			URAIClient.LOGGER.info("End tick Gemini response: {}", URAIClient.geminiResponse);
 
 			// if player is on a supported server
-			if (URAIUtils.isSupportedServer(client.player.networkHandler.getServerInfo())) {
+			if (AutoConfig.getConfigHolder(URAIConfig.class).getConfig().enableOnAllServers ||
+					URAIUtils.isSupportedServer(client.player.networkHandler.getServerInfo())) {
 				String sanitizedResponse = URAIUtils.sanitizeForMinecraftChat(URAIClient.geminiResponse);
 				client.player.networkHandler.sendChatMessage(sanitizedResponse);
 				URAIClient.LOGGER.info("sending sanitized chat {}", sanitizedResponse);

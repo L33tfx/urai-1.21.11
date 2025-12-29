@@ -7,6 +7,7 @@
   "text.autoconfig.urai.option.gameStartIntroMessage.@Tooltip" : "This does not automatically get sent, but is ignored by Gemini if it contains the prefix",
   "text.autoconfig.urai.option.geminiContextMessage" : "Message to Send to Gemini to Give Context",
   "text.autoconfig.urai.option.geminiContextMessage.@Tooltip" : "This is passed as a system instruction to Gemini",
+  "text.autoconfig.urai.option.enableOnAllServers" : "Enable Mod on All Servers",
   "text.autoconfig.urai.option.supportedServerDomains" : "Server Domains to Enable Mod on",
   "text.autoconfig.urai.title" : "U.R.A.I. Config"
 }
