@@ -21,9 +21,10 @@ public class URAIConfig implements ConfigData {
     public String geminiContextMessage = "";
 
     @ConfigEntry.Gui.Tooltip
-    public String gameStartIntroMessage = "Hello! I'm Gemini, your AI assistant. Want to chat? Just start your message with \"Hey Gemini\" followed by your question. To keep things fair and avoid spam, I can only reply once every 3 seconds. Good luck with the PvP!";
+    public String gameStartIntroMessage = "Hello! I'm Gemini, your AI assistant. Want to chat? Just start your message with \"Hey Gemini\" followed by your question. To keep things fair and avoid spam, I can only reply once every 3 seconds. Good luck with the game!";
 
     public boolean enableOnAllServers = true;
 
+    @ConfigEntry.Gui.Tooltip
     public ArrayList<String> supportedServerDomains = new ArrayList<>(List.of("hoplite.gg", "hypixel.net", "localhost"));
 }
