@@ -3,7 +3,7 @@
 	"id": "urai",
 	"version": "${version}",
 	"name": "U.R.A.I.",
-	"description": "you are ai - gaslight people into thinking you're a gemini ai bot",
+	"description": "you are ai - respond to chat messages using the google gemini ai api",
 	"authors": [
 		"L33tfox"
 	],

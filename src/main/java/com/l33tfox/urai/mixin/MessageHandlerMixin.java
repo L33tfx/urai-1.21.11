@@ -47,7 +47,7 @@ public abstract class MessageHandlerMixin {
 		}
 
 		// if an auto message has been sent recently, do nothing
-		if (URAIClient.lastMessageTime != null && System.currentTimeMillis() - URAIClient.lastMessageTime <= URAIClient.messageDelay) {
+		if (URAIClient.lastMessageTime != null && System.currentTimeMillis() - URAIClient.lastMessageTime <= config.messageDelay) {
 			return;
 		}
 

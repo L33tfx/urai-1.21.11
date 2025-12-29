@@ -22,10 +22,6 @@ public class URAIClient implements ClientModInitializer {
 	public static Long lastMessageTime = null;
 	// global variable for output from gemini
 	public static String geminiResponse = null;
-	// delay of 2 seconds between automated messages to avoid getting kicked for spam
-	public static final long messageDelay = 3000;
-
-	public static final String GEMINI_MODEL = "gemini-2.0-flash-lite";
 
 	public static final HashSet<String> SUPPORTED_SERVER_DOMAINS = new HashSet<>();
 
@@ -44,20 +40,20 @@ public class URAIClient implements ClientModInitializer {
 
 		// every tick, check for gemini response and send it as a chat message if it exists
 		ClientTickEvents.END_CLIENT_TICK.register((client -> {
-			if (!AutoConfig.getConfigHolder(URAIConfig.class).getConfig().modEnabled) {
+			URAIConfig conf = AutoConfig.getConfigHolder(URAIConfig.class).getConfig();
+			if (!conf.modEnabled) {
 				return;
 			}
 
 			if (client.player == null || URAIClient.geminiResponse == null ||
-					(URAIClient.lastMessageTime != null && System.currentTimeMillis() - URAIClient.lastMessageTime <= URAIClient.messageDelay)) {
+					(URAIClient.lastMessageTime != null && System.currentTimeMillis() - URAIClient.lastMessageTime <= conf.messageDelay)) {
 				return;
 			}
 
 			URAIClient.LOGGER.info("End tick Gemini response: {}", URAIClient.geminiResponse);
 
 			// if player is on a supported server
-			if (AutoConfig.getConfigHolder(URAIConfig.class).getConfig().enableOnAllServers ||
-					URAIUtils.isSupportedServer(client.player.networkHandler.getServerInfo())) {
+			if (conf.enableOnAllServers || URAIUtils.isSupportedServer(client.player.networkHandler.getServerInfo())) {
 				String sanitizedResponse = URAIUtils.sanitizeForMinecraftChat(URAIClient.geminiResponse);
 				client.player.networkHandler.sendChatMessage(sanitizedResponse);
 				URAIClient.LOGGER.info("sending sanitized chat {}", sanitizedResponse);

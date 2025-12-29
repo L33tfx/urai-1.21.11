@@ -23,8 +23,7 @@ public class GeminiApiIntegration {
             return null; // this should never happen due to other modEnabled checks, but here for safety
         }
 
-        String apiKey = config.geminiApiKey;
-        String geminiApiEndpoint = String.format("https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s", URAIClient.GEMINI_MODEL, apiKey);
+        String geminiApiEndpoint = String.format("https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s", config.geminiModel, config.geminiApiKey);
 
         String jsonRequest = String.format(
                 """
