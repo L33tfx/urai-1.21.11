@@ -6,7 +6,6 @@ import com.l33tfox.urai.URAIClient;
 import com.l33tfox.urai.config.URAIConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 
-import javax.annotation.Nullable;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
