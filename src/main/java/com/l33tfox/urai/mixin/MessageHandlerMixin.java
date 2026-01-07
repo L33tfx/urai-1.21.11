@@ -42,7 +42,8 @@ public abstract class MessageHandlerMixin {
 		ServerInfo serverInfo = client.getCurrentServerEntry();
 		URAIConfig config = AutoConfig.getConfigHolder(URAIConfig.class).getConfig();
 
-		if ((!config.enableOnAllServers && !URAIUtils.isSupportedServer(serverInfo)) || !config.modEnabled) {
+		if ((!config.enableOnAllServers && !URAIUtils.isSupportedServer(serverInfo)) || !config.modEnabled
+			|| URAIClient.geminiRequestInProgress) {
 			return;
 		}
 
@@ -56,6 +57,8 @@ public abstract class MessageHandlerMixin {
 			String prefix = AutoConfig.getConfigHolder(URAIConfig.class).getConfig().geminiRequestStart.toLowerCase();
 			String request = messageContent.toLowerCase().split(prefix, 2)[1].trim();
 
+			URAIClient.geminiRequestInProgress = true;
+
 			// set geminiResponse after async CompletableFuture<String> is resolved
 			getGeminiResponseAsync(request).thenAccept(responseText -> {
 				URAIClient.geminiResponse = responseText;
@@ -64,6 +67,9 @@ public abstract class MessageHandlerMixin {
 			.exceptionally(e -> {
 				URAIClient.LOGGER.info("Gemini async request failed: {}", e.getMessage());
 				return null;
+			})
+			.whenComplete((result, throwable) -> {
+				URAIClient.geminiRequestInProgress = false;
 			});
 		}
 	}

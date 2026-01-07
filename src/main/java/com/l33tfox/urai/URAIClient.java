@@ -23,6 +23,8 @@ public class URAIClient implements ClientModInitializer {
 	// global variable for output from gemini
 	public static String geminiResponse = null;
 
+	public static boolean geminiRequestInProgress = false;
+
 	public static final HashSet<String> SUPPORTED_SERVER_DOMAINS = new HashSet<>();
 
 	@Override
