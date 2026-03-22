@@ -11,7 +11,7 @@
 		"homepage": "https://linktree.com/l33tfox",
 		"sources": "https://github.com/L33tfx/urai-1.21.11"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/urai/icon.png",
 	"environment": "*",
 	"entrypoints": {
