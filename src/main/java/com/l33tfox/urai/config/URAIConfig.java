@@ -11,10 +11,10 @@ import java.util.List;
 public class URAIConfig implements ConfigData {
     public boolean modEnabled = true;
 
-    public String geminiApiKey = "enter your api key here for the mod to work properly";
+    public String geminiApiKey = "enter your api key here";
 
     @ConfigEntry.Gui.Tooltip
-    public String geminiModel = "gemini-2.0-flash-lite";
+    public String geminiModel = "gemini-2.5-flash-lite";
 
     public long messageDelay = 3000;
 
